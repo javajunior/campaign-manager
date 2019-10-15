@@ -10,7 +10,8 @@
   "dependencies": {
     "next": "9.1.1",
     "react": "16.10.2",
-    "react-dom": "16.10.2"
+    "react-dom": "16.10.2",
+    "semantic-ui-react": "^0.88.1"
   },
   "devDependencies": {
     "@types/node": "^12.7.12",
