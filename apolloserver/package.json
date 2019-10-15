@@ -1,0 +1,16 @@
+{
+  "name": "apolloserver",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "micro-dev ./api"
+  },
+  "dependencies": {
+    "apollo-server-micro": "^2.9.6",
+    "graphql": "^14.5.8"
+  },
+  "devDependencies": {
+    "micro-dev": "^3.0.0"
+  }
+}
