@@ -13,6 +13,7 @@
     "date-fns": "^2.4.1",
     "next": "9.1.1",
     "react": "16.10.2",
+    "react-dates": "^21.2.1",
     "react-dom": "16.10.2",
     "semantic-ui-react": "^0.88.1"
   },
