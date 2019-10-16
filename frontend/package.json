@@ -10,7 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@zeit/next-css": "^1.0.1",
     "date-fns": "^2.4.1",
+    "faker": "^4.1.0",
+    "lodash": "^4.17.15",
     "next": "9.1.1",
     "react": "16.10.2",
     "react-dates": "^21.2.1",
