@@ -14,10 +14,13 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link rel="icon" href="/favicon.ico" />
+          {/* Link Semantic UI css */}
           <link
             rel="stylesheet"
             href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css"
           />
+          {/* get the index.js from the public directory */}
+          <script src="/index.js"></script>
         </Head>
         <body>
           <Main />
