@@ -1,0 +1,598 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the "CampaignManager" component correctly 1`] = `
+<div
+  className="wrapper"
+>
+  <h2>
+    Campaign Manager
+  </h2>
+  <div
+    className="ui grid"
+  >
+    <div
+      className="six wide column"
+    >
+      <div
+        className="DateRangePicker DateRangePicker_1"
+      >
+        <div>
+          <div
+            className="DateRangePickerInput DateRangePickerInput_1 DateRangePickerInput__withBorder DateRangePickerInput__withBorder_2"
+          >
+            <div
+              className="DateInput DateInput_1"
+            >
+              <input
+                aria-describedby="DateInput__screen-reader-message-start_date_id"
+                aria-label="Start Date"
+                autoComplete="off"
+                className="DateInput_input DateInput_input_1"
+                disabled={false}
+                id="start_date_id"
+                name="start_date_id"
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="Start Date"
+                readOnly={false}
+                required={false}
+                type="text"
+                value=""
+              />
+              <p
+                className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+                id="DateInput__screen-reader-message-start_date_id"
+              >
+                Navigate forward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+              </p>
+            </div>
+            <div
+              aria-hidden="true"
+              className="DateRangePickerInput_arrow DateRangePickerInput_arrow_1"
+              role="presentation"
+            >
+              <svg
+                className="DateRangePickerInput_arrow_svg DateRangePickerInput_arrow_svg_1"
+                focusable="false"
+                viewBox="0 0 1000 1000"
+              >
+                <path
+                  d="M694 242l249 250c12 11 12 21 1 32L694 773c-5 5-10 7-16 7s-11-2-16-7c-11-11-11-21 0-32l210-210H68c-13 0-23-10-23-23s10-23 23-23h806L662 275c-21-22 11-54 32-33z"
+                />
+              </svg>
+            </div>
+            <div
+              className="DateInput DateInput_1"
+            >
+              <input
+                aria-describedby="DateInput__screen-reader-message-end_date_id"
+                aria-label="End Date"
+                autoComplete="off"
+                className="DateInput_input DateInput_input_1"
+                disabled={false}
+                id="end_date_id"
+                name="end_date_id"
+                onChange={[Function]}
+                onFocus={[Function]}
+                onKeyDown={[Function]}
+                placeholder="End Date"
+                readOnly={false}
+                required={false}
+                type="text"
+                value=""
+              />
+              <p
+                className="DateInput_screenReaderMessage DateInput_screenReaderMessage_1"
+                id="DateInput__screen-reader-message-end_date_id"
+              >
+                Navigate backward to interact with the calendar and select a date. Press the question mark key to get the keyboard shortcuts for changing dates.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="six wide column"
+    >
+      <div
+        className="ui fluid search"
+        onBlur={[Function]}
+        onFocus={[Function]}
+        onMouseDown={[Function]}
+      >
+        <div
+          className="ui icon input"
+        >
+          <input
+            autoComplete="off"
+            className="prompt"
+            onChange={[Function]}
+            onClick={[Function]}
+            placeholder="Type Campaign Name Here"
+            tabIndex="0"
+            type="text"
+            value=""
+          />
+          <i
+            aria-hidden="true"
+            className="search icon"
+            onClick={[Function]}
+          />
+        </div>
+        <div
+          className="results transition"
+        >
+          <div
+            className="message empty"
+          >
+            <div
+              className="header"
+            >
+              No results found.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <table
+    className="ui table"
+  >
+    <thead
+      className=""
+    >
+      <tr
+        className=""
+      >
+        <th
+          className=""
+        >
+          ID
+        </th>
+        <th
+          className=""
+        >
+          Campaign Name
+        </th>
+        <th
+          className=""
+        >
+          Start Date
+        </th>
+        <th
+          className=""
+        >
+          End Date
+        </th>
+        <th
+          className=""
+        >
+          Status
+        </th>
+        <th
+          className=""
+        >
+          Budget
+        </th>
+      </tr>
+    </thead>
+    <tbody
+      className=""
+    >
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          1
+        </td>
+        <td
+          className=""
+        >
+          Divavu
+        </td>
+        <td
+          className=""
+        >
+          9/19/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          3/9/2018
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          88.38k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          2
+        </td>
+        <td
+          className=""
+        >
+          Jaxspan
+        </td>
+        <td
+          className=""
+        >
+          11/21/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          2/21/2018
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          608.72k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          3
+        </td>
+        <td
+          className=""
+        >
+          Miboo
+        </td>
+        <td
+          className=""
+        >
+          11/1/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          6/20/2017
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          239.51k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          4
+        </td>
+        <td
+          className=""
+        >
+          Trilith
+        </td>
+        <td
+          className=""
+        >
+          1/1/2019
+           
+        </td>
+        <td
+          className=""
+        >
+          11/30/2019
+        </td>
+        <td
+          className="positive"
+        >
+          A
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          179.84k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          5
+        </td>
+        <td
+          className=""
+        >
+          Layo
+        </td>
+        <td
+          className=""
+        >
+          11/28/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          3/10/2018
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          837.85k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          6
+        </td>
+        <td
+          className=""
+        >
+          Photojam
+        </td>
+        <td
+          className=""
+        >
+          7/25/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          6/23/2017
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          858.13k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          7
+        </td>
+        <td
+          className=""
+        >
+          Blogtag
+        </td>
+        <td
+          className=""
+        >
+          6/27/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          1/15/2018
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          109.08k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          8
+        </td>
+        <td
+          className=""
+        >
+          Rhyzio
+        </td>
+        <td
+          className=""
+        >
+          10/13/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          1/25/2018
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          272.55k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          9
+        </td>
+        <td
+          className=""
+        >
+          Zoomcast
+        </td>
+        <td
+          className=""
+        >
+          9/6/2017
+           
+        </td>
+        <td
+          className=""
+        >
+          11/10/2017
+        </td>
+        <td
+          className="negative"
+        >
+          Ina
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          301.92k
+        </td>
+      </tr>
+      <tr
+        className=""
+      >
+        <td
+          className=""
+        >
+          10
+        </td>
+        <td
+          className=""
+        >
+          Realbridge
+        </td>
+        <td
+          className=""
+        >
+          10/17/2019
+           
+        </td>
+        <td
+          className=""
+        >
+          10/18/2019
+        </td>
+        <td
+          className="positive"
+        >
+          A
+          ctive
+        </td>
+        <td
+          className=""
+        >
+          505.60k
+        </td>
+      </tr>
+    </tbody>
+    <tfoot
+      className=""
+    >
+      <tr
+        className=""
+      >
+        <th
+          className=""
+        />
+        <th
+          className=""
+        >
+          10
+           Total Campaigns
+        </th>
+        <th
+          className=""
+        />
+        <th
+          className=""
+        />
+        <th
+          className=""
+        />
+        <th
+          className=""
+        />
+      </tr>
+    </tfoot>
+  </table>
+  <style>
+    
+        .wrapper {
+          max-width: 90%;
+          margin: 0 auto;
+          margin-top: 30px;
+        }
+        .results {
+          display:none;
+          opacity: 0;
+          transform: scale(0)
+        }
+        .input{
+          width: 400px;
+          margin: 0 auto;
+          display: block;
+          height: 50px;
+          border: 1px solid grey;
+          border-radius: 40px;
+        }
+      
+  </style>
+</div>
+`;

@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders the "CampaignTableRow" component correctly 1`] = `
+<tr
+  className=""
+>
+  <td
+    className=""
+  >
+    1
+  </td>
+  <td
+    className=""
+  >
+    Divavu
+  </td>
+  <td
+    className=""
+  >
+    9/19/2017
+     
+  </td>
+  <td
+    className=""
+  >
+    3/9/2018
+  </td>
+  <td
+    className="positive"
+  >
+    A
+    ctive
+  </td>
+  <td
+    className=""
+  >
+    88.38k
+  </td>
+</tr>
+`;
