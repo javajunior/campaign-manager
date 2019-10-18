@@ -1,120 +1,143 @@
-import React, { useState } from 'react'
-import _ from 'lodash'
-import faker from 'faker'
+import React, { useState, useEffect } from 'react'
+import { isPast, isWithinInterval, isToday } from 'date-fns'
 import 'react-dates/initialize'
-import {
-  DateRangePicker,
-  SingleDatePicker,
-  DayPickerRangeController,
-} from 'react-dates'
+import { DateRangePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
-import { Table, Search, Grid, Header, Segment } from 'semantic-ui-react'
+import { Search, Grid } from 'semantic-ui-react'
 
-const CampaignManager = () => {
+// Custom component(s)
+import CampaignTable from './CampaignTable'
+import CampaignTableRow from './CampaignTableRow'
+
+// Declare global window interface to avoid Typescript errors
+declare global {
+  interface Window {
+    // Add Addcampaigns as a method on the window obj
+    AddCampaigns: any
+  }
+}
+
+const CampaignManager = props => {
   // State initiation with React Hooks
 
-  // Required for DatePicker
+  // Initialize required states for date picker
   const [startDate, setStartDate] = useState(null)
   const [endDate, setEndDate] = useState(null)
   const [focusedInput, setfocusedInput] = useState(null)
 
+  // Initialize required states for search field
+  const [query, setQuery] = useState('')
+  const [data, setData] = useState(props.initialData)
+  const [loading, setLoading] = useState(false)
+
+  useEffect(() => {
+    window.AddCampaigns = arr => {
+      if (Array.isArray(arr)) {
+        return setData([...data, ...arr])
+      } else {
+        console.log('Please give me an array!')
+      }
+    }
+  })
+
+  const handleSearchChange = e => {
+    setQuery(e.target.value)
+    setLoading(true)
+
+    setTimeout(() => {
+      setLoading(false) // stop loading animation after 500ms
+    }, 500)
+  }
+
+  // Helper functions
+  const isActive = element =>
+    !isPast(new Date(element.endDate)) || isToday(new Date(element.endDate))
+
+  const withinInterval = element =>
+    endDate !== null && startDate !== null
+      ? isWithinInterval(new Date(element.endDate), {
+          start: new Date(startDate),
+          end: new Date(endDate),
+        }) || isActive(element)
+      : false
+
   return (
     <div className="wrapper">
+      <h2>Campaign Manager</h2>
       <Grid>
         <Grid.Column width={6}>
           <DateRangePicker
-            startDate={startDate} // momentPropTypes.momentObj or null,
-            startDateId="start_date_id" // PropTypes.string.isRequired,
-            endDate={endDate} // momentPropTypes.momentObj or null,
-            endDateId="end_date_id" // PropTypes.string.isRequired,
+            startDate={startDate}
+            startDateId="start_date_id"
+            endDate={endDate}
+            endDateId="end_date_id"
             onDatesChange={({ startDate, endDate }) => {
               setStartDate(startDate)
               setEndDate(endDate)
-              console.log(startDate, endDate, focusedInput)
-            }} // PropTypes.func.isRequired,
-            focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-            onFocusChange={focusedInput => setfocusedInput(focusedInput)} // PropTypes.func.isRequired,
+            }}
+            focusedInput={focusedInput}
+            onFocusChange={focusedInput => setfocusedInput(focusedInput)}
           />
         </Grid.Column>
-
         <Grid.Column width={6}>
           <Search
             fluid
-            // loading={isLoading}
-            // onResultSelect={this.handleResultSelect}
-            // onSearchChange={_.debounce(this.handleSearchChange, 500, {
-            //   leading: true,
-            // })}
-            // results={results}
-            // value={value}
-            // {...this.props}
+            loading={loading}
+            onSearchChange={handleSearchChange}
+            placeholder="Type Campaign Name Here"
           />
         </Grid.Column>
       </Grid>
 
-      <Table>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell>Name</Table.HeaderCell>
-            <Table.HeaderCell>Start Date</Table.HeaderCell>
-            <Table.HeaderCell>End Date</Table.HeaderCell>
-            <Table.HeaderCell>Status</Table.HeaderCell>
-            <Table.HeaderCell>Budget</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
+      <CampaignTable data={data}>
+        {data.map((element, index) => {
+          if (
+            element.name.toLowerCase().includes(query.toLowerCase()) ||
+            query === ''
+          ) {
+            if (endDate === null && startDate === null) {
+              return (
+                <CampaignTableRow
+                  element={element}
+                  isActive={isActive(element)}
+                  key={index}
+                />
+              )
+            } else {
+              return (
+                withinInterval(element) && (
+                  <CampaignTableRow
+                    element={element}
+                    isActive={isActive(element)}
+                    key={index}
+                  />
+                )
+              )
+            }
+          }
+          return null
+        })}
+      </CampaignTable>
 
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell>John</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Jamie</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>Requires call</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>Requires call</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Jill</Table.Cell>
-            <Table.Cell>Denied</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-            <Table.Cell>Denied</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Jamie</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>Requires call</Table.Cell>
-            <Table.Cell>Approved</Table.Cell>
-            <Table.Cell>Requires call</Table.Cell>
-          </Table.Row>
-          <Table.Row>
-            <Table.Cell>Jill</Table.Cell>
-            <Table.Cell>Denied</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-            <Table.Cell>Denied</Table.Cell>
-            <Table.Cell>None</Table.Cell>
-          </Table.Row>
-        </Table.Body>
-
-        <Table.Footer>
-          <Table.Row>
-            <Table.HeaderCell>3 People</Table.HeaderCell>
-            <Table.HeaderCell>2 Approved</Table.HeaderCell>
-            <Table.HeaderCell />
-            <Table.HeaderCell />
-            <Table.HeaderCell />
-          </Table.Row>
-        </Table.Footer>
-      </Table>
-      <style jsx>{`
+      <style>{`
         .wrapper {
           max-width: 90%;
           margin: 0 auto;
+          margin-top: 30px;
+        }
+        // Override some semantic ui styles
+        .results {
+          display:none;
+          opacity: 0;
+          transform: scale(0)
+        }
+        .input{
+          width: 400px;
+          margin: 0 auto;
+          display: block;
+          height: 50px;
+          border: 1px solid grey;
+          border-radius: 40px;
         }
       `}</style>
     </div>
