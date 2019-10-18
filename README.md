@@ -1,6 +1,6 @@
 # Campaign Manager
 
-This is a simple campaign manager, implemented with React, Next.js, Typescript and other helpful packages.
+This is a simple campaign manager, implemented with React, Next.js, Typescript and other helpful packages as part of a coding challenge.
 [Visit Live Site Here.](https://campaign-manager.now.sh)
 
 #
@@ -8,6 +8,49 @@ This is a simple campaign manager, implemented with React, Next.js, Typescript a
 [<img src="./demo.png">](https://campaign-manager.now.sh)
 
 #
+
+### The Challenge Requirements
+
+The application should be a simple page with the following elements:
+
+1. A list of Campaign which shows
+
+- The Name
+- The startDate
+- The endDate
+- A flag to state if the Campaign is active (a campaign is running when the current date is inside the start-end date range)
+- The Budget (in USD dollar)
+
+2. A Search Form before the list in order to filter the list by Campaign Name
+3. A DateRange component that filters the list of campaigns based on a Start and End Date.
+4. If the campaign has a startDate that is contained in the range, it should show
+5. If the campaign has an endDate that is contained in the range, it should show.
+6. You should not be able to select an end-date that is before the start-date.
+7. If the endDate is before the start Date, the campaign should not show.
+
+_Also, The candidate will expose a global method called &#39;AddCampaigns&#39; that takes an array of Campaigns and will render them.
+This function will be invoked from the browser’s JavaScript console for testing purposes. If it cannot be invoked, the submission will be rejected.
+The method is allowed to be called multiple times. If so, the new campaigns will append to the existing list.
+Example of campaign array that can be passed:_
+
+```js
+;[
+  {
+    id: 1,
+    name: 'Divavu',
+    startDate: '9/19/2017',
+    endDate: '3/9/2018',
+    Budget: 88377,
+  },
+  {
+    id: 2,
+    name: 'Jaxspan',
+    startDate: '11/21/2017',
+    endDate: '2/21/2018',
+    Budget: 608715,
+  },
+]
+```
 
 ### Features
 
