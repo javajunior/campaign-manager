@@ -125,7 +125,6 @@ const CampaignManager = props => {
           margin: 0 auto;
           margin-top: 30px;
         }
-        // Override some semantic ui styles
         .results {
           display:none;
           opacity: 0;
