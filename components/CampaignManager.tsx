@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { isPast, isWithinInterval, isToday } from 'date-fns'
+import { isPast, isWithinInterval, isToday, isBefore } from 'date-fns'
 import 'react-dates/initialize'
 import { DateRangePicker } from 'react-dates'
 import 'react-dates/lib/css/_datepicker.css'
@@ -32,7 +32,18 @@ const CampaignManager = props => {
 
   useEffect(() => {
     window.AddCampaigns = arr => {
+      // check if the input is an array
       if (Array.isArray(arr)) {
+        // loop through the array
+        arr.forEach(item => {
+          // check if end date is before start date
+          if (isBefore(new Date(item.endDate), new Date(item.startDate))) {
+            throw new Error(
+              "Invalid dates. End date can't be before start date",
+            )
+          }
+        })
+        // if everything is okay, update the state and append the new array
         return setData([...data, ...arr])
       } else {
         console.log('Please give me an array!')
@@ -95,6 +106,7 @@ const CampaignManager = props => {
             element.name.toLowerCase().includes(query.toLowerCase()) ||
             query === ''
           ) {
+            // when there's no date range yet
             if (endDate === null && startDate === null) {
               return (
                 <CampaignTableRow
@@ -105,6 +117,7 @@ const CampaignManager = props => {
               )
             } else {
               return (
+                // only return the elements within the interval
                 withinInterval(element) && (
                   <CampaignTableRow
                     element={element}
@@ -115,10 +128,11 @@ const CampaignManager = props => {
               )
             }
           }
-          return null
+          return null // if there's no match, don't return anything
         })}
       </CampaignTable>
 
+      {/* Update/ override some semantic UI styles */}
       <style>{`
         .wrapper {
           max-width: 90%;
