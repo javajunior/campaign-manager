@@ -18,7 +18,7 @@
     "react": "16.10.2",
     "react-dates": "^21.2.1",
     "react-dom": "16.10.2",
-    "semantic-ui-react": "^0.88.1"
+    "semantic-ui-react": "^0.88.2"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.6.3",
