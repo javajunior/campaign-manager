@@ -16,7 +16,7 @@
     "next": "9.1.1",
     "numbro": "^2.1.2",
     "react": "16.10.2",
-    "react-dates": "^21.2.1",
+    "react-dates": "^21.8.0",
     "react-dom": "16.10.2",
     "semantic-ui-react": "^0.88.1"
   },
